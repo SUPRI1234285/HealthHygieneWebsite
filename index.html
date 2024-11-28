@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health and Hygiene</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="doctor-animation" class="animation">
+    <div id="greeting">
+      <h2>Hi! How can I assist you today?</h2>
+    </div>
+  </div>
+
+  <header>
+    <h1>Health and Hygiene</h1>
+    <p>Select a disease to get started:</p>
+  </header>
+
+  <main>
+    <div class="disease-options" id="disease-options">
+      <button onclick="openModal('flu')">Flu</button>
+      <button onclick="openModal('cold')">Common Cold</button>
+      <button onclick="openModal('dengue')">Dengue</button>
+      <button onclick="openModal('malaria')">Malaria</button>
+      <button onclick="openModal('diarrhea')">Diarrhea</button>
+    </div>
+  </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Select Your Details</h2>
+      
+      <div id="age-step" style="display: none;">
+        <label for="age">Select Age:</label>
+        <select id="age">
+          <option value="child">Child (0-12 years)</option>
+          <option value="teen">Teenager (13-18 years)</option>
+          <option value="adult">Adult (19-60 years)</option>
+          <option value="senior">Senior (60+ years)</option>
+        </select>
+        <br><br>
+        <button onclick="nextStep()">Next</button>
+      </div>
+
+      <div id="weight-step" style="display: none;">
+        <label for="weight">Select Weight:</label>
+        <select id="weight">
+          <option value="low">Under 40 kg</option>
+          <option value="medium">40-70 kg</option>
+          <option value="high">Above 70 kg</option>
+        </select>
+        <br><br>
+        <button onclick="nextStep()">Next</button>
+      </div>
+
+      <div id="sex-step" style="display: none;">
+        <label for="sex">Select Sex:</label>
+        <select id="sex" onchange="showFemaleOptions()">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <br><br>
+
+        <div id="female-options" style="display: none;">
+          <label for="female-condition">Select Condition:</label>
+          <select id="female-condition">
+            <option value="normal">Normal</option>
+            <option value="pregnant">Pregnant</option>
+            <option value="menstruation">Menstruation</option>
+          </select>
+        </div>
+        <br><br>
+
+        <button onclick="showMedicine()">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="disease-info"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
